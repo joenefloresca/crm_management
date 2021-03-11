@@ -10,6 +10,7 @@ class CreateSurveyReponsesTable extends Migration
     {
         Schema::create('survey_reponses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('response')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

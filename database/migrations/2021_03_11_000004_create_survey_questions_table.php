@@ -12,6 +12,7 @@ class CreateSurveyQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('question');
             $table->string('code');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

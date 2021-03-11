@@ -63,7 +63,7 @@ class SurveyFormsController extends Controller
     {
         abort_if(Gate::denies('survey_form_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $surveyForm->load('campaign');
+        $surveyForm->load('campaign', 'surveyFormSurveyReponses');
 
         return view('admin.surveyForms.show', compact('surveyForm'));
     }

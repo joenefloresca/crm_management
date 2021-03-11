@@ -19,9 +19,16 @@ class SurveyReponse extends Model
         'deleted_at',
     ];
 
+    const RESPONSE_SELECT = [
+        'Yes'      => 'Yes',
+        'Possibly' => 'Possibly',
+        'No'       => 'No',
+    ];
+
     protected $fillable = [
         'survey_form_id',
         'survey_question_id',
+        'response',
         'created_at',
         'updated_at',
         'deleted_at',

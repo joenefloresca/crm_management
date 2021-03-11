@@ -39,6 +39,14 @@
                             {{ $surveyReponse->survey_question->code ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.surveyReponse.fields.response') }}
+                        </th>
+                        <td>
+                            {{ App\Models\SurveyReponse::RESPONSE_SELECT[$surveyReponse->response] ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

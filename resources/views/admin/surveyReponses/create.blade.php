@@ -38,6 +38,21 @@
                 <span class="help-block">{{ trans('cruds.surveyReponse.fields.survey_question_helper') }}</span>
             </div>
             <div class="form-group">
+                <label>{{ trans('cruds.surveyReponse.fields.response') }}</label>
+                <select class="form-control {{ $errors->has('response') ? 'is-invalid' : '' }}" name="response" id="response">
+                    <option value disabled {{ old('response', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Models\SurveyReponse::RESPONSE_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('response', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('response'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('response') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.surveyReponse.fields.response_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

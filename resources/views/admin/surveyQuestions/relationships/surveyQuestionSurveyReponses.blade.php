@@ -34,6 +34,9 @@
                             {{ trans('cruds.surveyQuestion.fields.question') }}
                         </th>
                         <th>
+                            {{ trans('cruds.surveyReponse.fields.response') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -55,6 +58,9 @@
                             </td>
                             <td>
                                 {{ $surveyReponse->survey_question->question ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Models\SurveyReponse::RESPONSE_SELECT[$surveyReponse->response] ?? '' }}
                             </td>
                             <td>
                                 @can('survey_reponse_show')

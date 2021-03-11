@@ -30,6 +30,32 @@
                 <span class="help-block">{{ trans('cruds.surveyQuestion.fields.code_helper') }}</span>
             </div>
             <div class="form-group">
+                <div class="form-check {{ $errors->has('is_active') ? 'is-invalid' : '' }}">
+                    <input class="form-check-input" type="checkbox" name="is_active" id="is_active" value="1" required {{ old('is_active', 0) == 1 || old('is_active') === null ? 'checked' : '' }}>
+                    <label class="required form-check-label" for="is_active">{{ trans('cruds.surveyQuestion.fields.is_active') }}</label>
+                </div>
+                @if($errors->has('is_active'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('is_active') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.surveyQuestion.fields.is_active_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="campaign_id">{{ trans('cruds.surveyQuestion.fields.campaign') }}</label>
+                <select class="form-control select2 {{ $errors->has('campaign') ? 'is-invalid' : '' }}" name="campaign_id" id="campaign_id">
+                    @foreach($campaigns as $id => $campaign)
+                        <option value="{{ $id }}" {{ old('campaign_id') == $id ? 'selected' : '' }}>{{ $campaign }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('campaign'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('campaign') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.surveyQuestion.fields.campaign_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

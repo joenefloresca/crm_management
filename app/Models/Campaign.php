@@ -35,4 +35,9 @@ class Campaign extends Model
     {
         return $this->hasMany(SurveyForm::class, 'campaign_id', 'id');
     }
+
+    public function campaignSurveyQuestions()
+    {
+        return $this->hasMany(SurveyQuestion::class, 'campaign_id', 'id');
+    }
 }

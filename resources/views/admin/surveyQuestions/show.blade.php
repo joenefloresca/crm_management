@@ -39,6 +39,22 @@
                             {{ $surveyQuestion->code }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.surveyQuestion.fields.is_active') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $surveyQuestion->is_active ? 'checked' : '' }}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.surveyQuestion.fields.campaign') }}
+                        </th>
+                        <td>
+                            {{ $surveyQuestion->campaign->campaign ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">
