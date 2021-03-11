@@ -17,12 +17,15 @@ class StoreSurveyQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'question' => [
+            'question'  => [
                 'string',
                 'required',
             ],
-            'code'     => [
+            'code'      => [
                 'string',
+                'required',
+            ],
+            'is_active' => [
                 'required',
             ],
         ];

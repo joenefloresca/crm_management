@@ -17,7 +17,7 @@ class SurveyQuestionsApiController extends Controller
     {
         abort_if(Gate::denies('survey_question_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new SurveyQuestionResource(SurveyQuestion::all());
+        return new SurveyQuestionResource(SurveyQuestion::with(['campaign'])->get());
     }
 
     public function store(StoreSurveyQuestionRequest $request)
@@ -33,7 +33,7 @@ class SurveyQuestionsApiController extends Controller
     {
         abort_if(Gate::denies('survey_question_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new SurveyQuestionResource($surveyQuestion);
+        return new SurveyQuestionResource($surveyQuestion->load(['campaign']));
     }
 
     public function update(UpdateSurveyQuestionRequest $request, SurveyQuestion $surveyQuestion)

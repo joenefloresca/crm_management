@@ -54,7 +54,7 @@ class CampaignsController extends Controller
     {
         abort_if(Gate::denies('campaign_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $campaign->load('campaignSurveyForms');
+        $campaign->load('campaignSurveyForms', 'campaignSurveyQuestions');
 
         return view('admin.campaigns.show', compact('campaign'));
     }

@@ -52,10 +52,18 @@
                 {{ trans('cruds.surveyForm.title') }}
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#campaign_survey_questions" role="tab" data-toggle="tab">
+                {{ trans('cruds.surveyQuestion.title') }}
+            </a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="campaign_survey_forms">
             @includeIf('admin.campaigns.relationships.campaignSurveyForms', ['surveyForms' => $campaign->campaignSurveyForms])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="campaign_survey_questions">
+            @includeIf('admin.campaigns.relationships.campaignSurveyQuestions', ['surveyQuestions' => $campaign->campaignSurveyQuestions])
         </div>
     </div>
 </div>

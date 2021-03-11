@@ -22,6 +22,8 @@ class SurveyQuestion extends Model
     protected $fillable = [
         'question',
         'code',
+        'is_active',
+        'campaign_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -35,5 +37,10 @@ class SurveyQuestion extends Model
     public function surveyQuestionSurveyReponses()
     {
         return $this->hasMany(SurveyReponse::class, 'survey_question_id', 'id');
+    }
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class, 'campaign_id');
     }
 }

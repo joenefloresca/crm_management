@@ -43,6 +43,11 @@ class SurveyForm extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
+    public function surveyFormSurveyReponses()
+    {
+        return $this->hasMany(SurveyReponse::class, 'survey_form_id', 'id');
+    }
+
     public function campaign()
     {
         return $this->belongsTo(Campaign::class, 'campaign_id');

@@ -81,6 +81,10 @@ return [
             'deleted_at_helper' => ' ',
             'code'              => 'Code',
             'code_helper'       => ' ',
+            'is_active'         => 'Is Active',
+            'is_active_helper'  => ' ',
+            'campaign'          => 'Campaign',
+            'campaign_helper'   => ' ',
         ],
     ],
     'campaign'       => [
@@ -155,6 +159,8 @@ return [
             'updated_at_helper'      => ' ',
             'deleted_at'             => 'Deleted at',
             'deleted_at_helper'      => ' ',
+            'response'               => 'Response',
+            'response_helper'        => ' ',
         ],
     ],
 ];
